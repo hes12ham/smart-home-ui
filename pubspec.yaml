@@ -40,7 +40,6 @@ dependencies:
   sleek_circular_slider: ^2.0.1
   flutter_signin_button: ^2.0.0
   firebase_core: ^2.4.1
-  google_sign_in: ^5.4.4
   firebase_auth: ^4.2.5
   flutter_facebook_auth: ^3.5.7
   firebase_phone_auth_handler: ^1.0.8
@@ -60,6 +59,15 @@ dependencies:
   image_downloader: ^0.31.0
   percent_indicator: ^3.4.0
   path: ^1.8.2
+  ndialog: ^4.3.0
+  flutter_bluetooth_serial: ^0.4.0
+  syncfusion_flutter_sliders: ^21.2.4
+  speech_to_text: ^6.1.1
+  highlight_text: ^1.6.0
+  avatar_glow: ^2.0.2
+  getwidget: ^3.1.1
+
+  dependencies:
 
 dev_dependencies:
   flutter_lints: ^1.0.0

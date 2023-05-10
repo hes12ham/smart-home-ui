@@ -2,6 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:getwidget/components/avatar/gf_avatar.dart';
+import 'package:getwidget/components/drawer/gf_drawer.dart';
+import 'package:getwidget/components/drawer/gf_drawer_header.dart';
 import '../../../../core/navigation/navigator.dart';
 
 import '../../../devices/domain/models/devices.dart';
@@ -25,11 +28,10 @@ class HomeScreen extends StatelessWidget
         builder: (context, snapshot) {
 
           if(snapshot.hasError) {
-            return SizedBox(child: Text('There is an error'));
           }
 
           if(snapshot.hasData) {
-            final data = snapshot.data!.data() as Map<String, dynamic>;
+            final data = snapshot.data?.data() as Map<String, dynamic>;
             return SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
@@ -40,7 +42,7 @@ class HomeScreen extends StatelessWidget
                     children: [
                       Expanded(
                         child: Text(
-                          'Hello, ${data['userName']}',
+                          'Hello, ${data['userName']??""}',
                           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             fontSize: 25,
                             fontWeight: FontWeight.w400,
@@ -53,7 +55,7 @@ class HomeScreen extends StatelessWidget
                         ),
                         child:  CircleAvatar(
                           radius: 24,
-                          backgroundImage: NetworkImage(data['profile_picture']),
+                          backgroundImage: NetworkImage(data['profile_picture']??"${Icon(Icons.person)}"),
                         ),
                       ),
                     ],

@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_phone_auth_handler/firebase_phone_auth_handler.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_signin_button/button_builder.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
+import 'package:ndialog/ndialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smarty/features/login/presentation/views/login.dart';
 import 'package:smarty/features/profile/presentation/views/photoScreen.dart';
@@ -73,11 +76,11 @@ class ProfileScreen extends StatelessWidget {
                             CircleAvatar(
                               radius: 32.r,
                               backgroundImage:
-                              NetworkImage(data['profile_picture']),
+                              NetworkImage("${data['profile_picture']??""}"),
                             ),
                             SizedBox(height: 12.h),
                             Text(
-                             (data['email']),
+                             ("${data['email']??""}"),
                               style:TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w400,
@@ -85,7 +88,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 12.h),
                             Text(
-                                (data['userName']),
+                                ("${data['userName']??""}"),
                               style:TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w400,
@@ -169,6 +172,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
 
                     ],
+
                   ),
                 ),
               ),
